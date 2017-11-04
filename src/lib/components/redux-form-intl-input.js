@@ -5,19 +5,21 @@ import IntlInput from './intl-input';
 export default class ReduxFormWrapper extends Component {
 
   static propTypes = {
-    name : PropTypes.string.isRequired,
-    value: PropTypes.any,
-    checked: PropTypes.bool,
-    onFocus: PropTypes.func,
-    onBlur: PropTypes.func,
-    onChange: PropTypes.func,
-    onDragStart: PropTypes.func,
-    onDrop: PropTypes.func,
+    input : PropTypes.shape({
+      name : PropTypes.string,
+      value: PropTypes.any,
+      checked: PropTypes.bool,
+      onFocus: PropTypes.func,
+      onBlur: PropTypes.func,
+      onChange: PropTypes.func,
+      onDragStart: PropTypes.func,
+      onDrop: PropTypes.func,
+    }),
   }
 
   handleInputChange = (lang, newValue) => {
 
-    const { value, onChange } = this.props;
+    const { input: { value, onChange } } = this.props;
 
     onChange({
       ...value,
@@ -26,27 +28,29 @@ export default class ReduxFormWrapper extends Component {
   }
 
   handleInputFocus = (event) => {
-    this.props.onFocus(event);
+    this.props.input.onFocus(event);
   }
 
   handleInputBlur = (event) => {
     // Passing the current value of the input instead of the React.Synthetic event
     // because the event.target contains the string value of the selected language.
     // https://redux-form.com/7.1.2/docs/api/field.md/#-code-input-onblur-eventorvalue-function-code-
-    this.props.onBlur(this.props.value);
+    this.props.input.onBlur(this.props.input.value);
   }
 
   render() {
     const {
       lang,
-      value,
-      name,
-      checked, // eslint-disable-line no-unused-vars
-      onFocus, // eslint-disable-line no-unused-vars
-      onBlur, // eslint-disable-line no-unused-vars
-      onChange, // eslint-disable-line no-unused-vars
-      onDragStart, // eslint-disable-line no-unused-vars
-      onDrop, // eslint-disable-line no-unused-vars
+      input: {
+        value,
+        name,
+        checked, // eslint-disable-line no-unused-vars
+        onFocus, // eslint-disable-line no-unused-vars
+        onBlur, // eslint-disable-line no-unused-vars
+        onChange, // eslint-disable-line no-unused-vars
+        onDragStart, // eslint-disable-line no-unused-vars
+        onDrop, // eslint-disable-line no-unused-vars
+      },
       ...props,
     } = this.props;
 

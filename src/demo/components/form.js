@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import PropTypes from 'prop-types';
 
-import ReduxWrapper from '../lib/components/redux-form-intl-input';
-import Option from '../lib/components/option';
+import ReduxWrapper from '../../lib/components/redux-form-intl-input';
+import Option from '../../lib/components/option';
 
 class Input extends React.Component {
 

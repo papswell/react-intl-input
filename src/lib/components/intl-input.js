@@ -7,7 +7,7 @@ import Option from './option';
 import 'react-select/dist/react-select.css';
 import './styles.css';
 
-const computeState = (props) => {
+const computeState = (props, state = {}) => {
 
   const values = props.languages
     .map(lang => lang.value)
@@ -19,7 +19,7 @@ const computeState = (props) => {
 
   return {
     languages: props.languages,
-    lang: props.initialLang || props.languages[0].value,
+    lang: props.initialLang || state.lang || props.languages[0].value,
     values,
   }
 }
@@ -54,7 +54,7 @@ class IntlInput extends Component {
   }
 
   componentWillReceiveProps(props) {
-    this.setState(computeState(props));
+    this.setState(computeState(props, this.state));
   }
 
   handleLangChange = (val) => {
@@ -123,9 +123,9 @@ class IntlInput extends Component {
           options={languages}
           onChange={this.handleLangChange}
           optionRenderer={this.renderSelectOptions}
+          valueRenderer={this.props.valueRenderer}
           clearable={false}
           searchable={false}
-          valueRenderer={this.props.valueRenderer}
         />
         <input
           name={inputName}
