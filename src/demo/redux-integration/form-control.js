@@ -1,4 +1,5 @@
 import React from 'react';
+import { FormGroup, HelpBlock } from 'react-bootstrap';
 import { ReduxFormIntlInput } from '../../lib';
 
 export default class FormControl extends React.Component {
@@ -7,13 +8,17 @@ export default class FormControl extends React.Component {
       const { input, meta: { touched, error }, ...props } = this.props;
 
       return (
-        <div>
+        <FormGroup validationState={touched && error && 'error' || null}>
           <ReduxFormIntlInput
             input={input} // inject redux-form props
             {...props} // inject custom props
           />
-          {touched && error }
-        </div>
+          {touched && error && (
+            <HelpBlock>
+              {error}
+            </HelpBlock>
+          )}
+        </FormGroup>
       )
     }
 }

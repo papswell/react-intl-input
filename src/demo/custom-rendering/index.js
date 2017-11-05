@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { FormGroup, ControlLabel } from 'react-bootstrap';
 
 import IntlInput from '../../lib/components/intl-input';
 import Option from '../../lib/components/option';
@@ -49,17 +50,15 @@ export default class CustomRendering extends Component {
         <p>
         </p>
 
-        <div className="form-control">
-          <label htmlFor="custom-rendering-input">
-
-          </label>
+        <FormGroup>
+          <ControlLabel>Label</ControlLabel>
           <IntlInput
             name="custom-rendering-input"
             languages={langs}
             optionRenderer={this.renderSelectOptions}
             valueRenderer={this.renderSelectValue}
           />
-        </div>
+        </FormGroup>
 
       </section>
 

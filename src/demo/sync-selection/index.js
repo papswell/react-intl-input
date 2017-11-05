@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
+import { Row, Col, FormGroup } from 'react-bootstrap';
 import SyncFields from './sync-fields';
 
 const langs = [
@@ -35,24 +36,32 @@ class SyncSelectionExample extends Component {
           Use the `onLangChange` function prop
         </p>
 
-        <div>
-          <strong>Language selected</strong>
-          <Select
-            name="lang-selector"
-            value={lang}
-            options={langs}
-            onChange={this.handleLangChange}
-            clearable={false}
-            searchable={false}
-          />
-        </div>
+        <Row>
+          <Col md={6}>
+            <FormGroup>
+              <label>Language selected</label>
+              <Select
+                name="lang-selector"
+                value={lang}
+                options={langs}
+                onChange={this.handleLangChange}
+                clearable={false}
+                searchable={false}
+              />
+            </FormGroup>
+          </Col>
+        </Row>
 
-        <SyncFields
-          langs={langs}
-          lang={lang}
-          handleLangChange={this.handleLangChange}
-        />
-
+        <Row>
+          <Col md={6}>
+            <SyncFields
+              langs={langs}
+              lang={lang}
+              handleLangChange={this.handleLangChange}
+            />
+          </Col>
+          <Col md={6}></Col>
+        </Row>
       </section>
     );
   }

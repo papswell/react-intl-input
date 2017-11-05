@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { Field, reduxForm } from 'redux-form';
+import { connect } from 'react-redux';
+import { Field, reduxForm, getFormSyncErrors } from 'redux-form';
+import { FormGroup, Button } from 'react-bootstrap';
 
 import FormControl from './form-control';
 import { ReduxFormIntlInput } from '../../lib';
@@ -7,13 +9,13 @@ import { ReduxFormIntlInput } from '../../lib';
 class Form extends Component {
 
   render() {
-    const { handleSubmit, langs } = this.props;
+    const { handleSubmit, langs, hasErrors } = this.props;
 
     return (
       <div>
         <form onSubmit={ handleSubmit }>
 
-          <div className="form-control">
+          <FormGroup>
 
             <label htmlFor="title">
               <strong>Title *</strong>
@@ -24,9 +26,9 @@ class Form extends Component {
               component={FormControl}
               languages={langs}
             />
-          </div>
+          </FormGroup>
 
-          <div className="form-control">
+          <FormGroup>
             <label htmlFor="description">
               <strong>Description</strong>
               <span> (Simple field)</span>
@@ -36,11 +38,11 @@ class Form extends Component {
               component={ReduxFormIntlInput}
               languages={langs}
             />
-          </div>
+          </FormGroup>
 
-          <button>
+          <Button bsStyle="primary" type="submit" disabled={hasErrors}>
             Submit
-          </button>
+          </Button>
         </form>
       </div>
     );
@@ -48,7 +50,14 @@ class Form extends Component {
 
 }
 
-export default reduxForm({
+export default connect(
+  (state, props) => {
+    const errors = getFormSyncErrors('ReduxForm')(state);
+    return ({
+      hasErrors: errors && Object.values(errors).some(e => !!e)
+    })
+  }
+)(reduxForm({
   form: 'ReduxForm',
   validate: (values) => {
     const errors = {};
@@ -56,4 +65,4 @@ export default reduxForm({
     errors.title = Object.values(values.title).some(v => !v) && "Title is required";
     return errors;
   }
-})(Form);
+})(Form));

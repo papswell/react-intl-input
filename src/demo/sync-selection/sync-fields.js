@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Field, reduxForm } from 'redux-form';
 import PropTypes from 'prop-types';
+import { Field, reduxForm } from 'redux-form';
+import { FormGroup, Button } from 'react-bootstrap';
 
 import { ReduxFormIntlInput } from '../../lib';
 
@@ -21,7 +22,7 @@ class CustomRenderingForm extends Component {
       <div>
         <form onSubmit={ this.handleSubmit }>
 
-          <div className="form-control">
+          <FormGroup>
 
             <label htmlFor="title">{lang ==='fr' ? 'Titre' : 'Title'}</label>
             <Field
@@ -31,9 +32,9 @@ class CustomRenderingForm extends Component {
               languages={langs}
               handleLangChange={this.props.handleLangChange}
             />
-          </div>
+          </FormGroup>
 
-          <div className="form-control">
+          <FormGroup>
             <label htmlFor="description">Description</label>
             <Field
               name="description"
@@ -42,11 +43,11 @@ class CustomRenderingForm extends Component {
               languages={langs}
               handleLangChange={this.props.handleLangChange}
             />
-          </div>
+          </FormGroup>
 
-          <button>
+          <Button bsStyle="primary" type="submit">
             Submit
-          </button>
+          </Button>
         </form>
       </div>
     );

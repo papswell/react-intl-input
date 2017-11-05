@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Grid } from 'react-bootstrap';
 
 import BasicExample from './basic';
 import CustomRendering from './custom-rendering';
@@ -10,10 +11,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <BasicExample />
-        <CustomRendering />
-        <ReduxIntegration />
-        <SyncSelection />
+        <Grid>
+          <BasicExample />
+          <CustomRendering />
+          <ReduxIntegration />
+          <SyncSelection />
+        </Grid>
       </div>
     );
   }
