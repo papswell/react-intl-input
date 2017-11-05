@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
-import Form from './form';
 import ReduxForm from './redux-form';
 import CustomRendering from './custom-rendering';
 import SyncFields from './sync-fields';

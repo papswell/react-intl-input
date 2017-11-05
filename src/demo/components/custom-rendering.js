@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Field, reduxForm } from 'redux-form';
 import PropTypes from 'prop-types';
 
 import IntlInput from '../../lib/components/intl-input';
@@ -40,7 +39,7 @@ export default class CustomRenderingForm extends Component {
   };
 
   render() {
-    const { handleSubmit, lang, langs } = this.props;
+    const { langs } = this.props;
 
     return (
       <div className="form-control">

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import Select from 'react-select';
+import Select from './select';
+import Input from './input';
 import Option from './option';
 
-import 'react-select/dist/react-select.css';
 import './styles.css';
 
 const computeState = (props, state = {}) => {
@@ -118,18 +118,14 @@ class IntlInput extends Component {
       <div className="react_intl_field">
         <Select
           name={selectName}
-          className="react_intl_field-lang_selector"
           value={lang}
           options={languages}
           onChange={this.handleLangChange}
           optionRenderer={this.renderSelectOptions}
           valueRenderer={this.props.valueRenderer}
-          clearable={false}
-          searchable={false}
         />
-        <input
+        <Input
           name={inputName}
-          className="react_intl_field-input"
           value={this.state.values[lang]}
           onChange={this.handleInputChange}
           onFocus={this.props.onInputFocus}
