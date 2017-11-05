@@ -1,24 +1,8 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 
-import ReduxWrapper from '../../lib/components/redux-form-intl-input';
-
-class Input extends React.Component {
-
-    render() {
-
-      const { input, meta: { touched, error }, ...props } = this.props;
-      return (
-        <div>
-          <ReduxWrapper
-            input={input} // inject redux-form props
-            {...props} // inject custom props
-          />
-          {touched && error }
-        </div>
-      )
-    }
-}
+import FormControl from './form-control';
+import { ReduxFormIntlInput } from '../../lib';
 
 class Form extends Component {
 
@@ -31,19 +15,25 @@ class Form extends Component {
 
           <div className="form-control">
 
-            <label htmlFor="title">Title</label>
+            <label htmlFor="title">
+              <strong>Title *</strong>
+              <span> (Wrapped field with validation error)</span>
+            </label>
             <Field
               name="title"
-              component={ReduxWrapper}
+              component={FormControl}
               languages={langs}
             />
           </div>
 
           <div className="form-control">
-            <label htmlFor="description">Description</label>
+            <label htmlFor="description">
+              <strong>Description</strong>
+              <span> (Simple field)</span>
+            </label>
             <Field
               name="description"
-              component={Input}
+              component={ReduxFormIntlInput}
               languages={langs}
             />
           </div>
@@ -63,7 +53,7 @@ export default reduxForm({
   validate: (values) => {
     const errors = {};
 
-    errors.description = Object.values(values.description).some(v => !v) && "Desc. is required";
+    errors.title = Object.values(values.title).some(v => !v) && "Title is required";
     return errors;
   }
 })(Form);

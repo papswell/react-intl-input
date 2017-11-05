@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import PropTypes from 'prop-types';
 
-import ReduxWrapper from '../../lib/components/redux-form-intl-input';
+import { ReduxFormIntlInput } from '../../lib';
 
 class CustomRenderingForm extends Component {
 
@@ -10,19 +10,23 @@ class CustomRenderingForm extends Component {
     lang: PropTypes.string.isRequired,
   }
 
+  handleSubmit = (event) => {
+    event.preventDefault();
+  }
+
   render() {
-    const { handleSubmit, lang, langs } = this.props;
+    const { lang, langs } = this.props;
 
     return (
       <div>
-        <form onSubmit={ handleSubmit }>
+        <form onSubmit={ this.handleSubmit }>
 
           <div className="form-control">
 
             <label htmlFor="title">{lang ==='fr' ? 'Titre' : 'Title'}</label>
             <Field
               name="title"
-              component={ReduxWrapper}
+              component={ReduxFormIntlInput}
               lang={lang}
               languages={langs}
               handleLangChange={this.props.handleLangChange}
@@ -33,7 +37,7 @@ class CustomRenderingForm extends Component {
             <label htmlFor="description">Description</label>
             <Field
               name="description"
-              component={ReduxWrapper}
+              component={ReduxFormIntlInput}
               lang={lang}
               languages={langs}
               handleLangChange={this.props.handleLangChange}

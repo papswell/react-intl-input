@@ -54,11 +54,13 @@ export default class ReduxFormWrapper extends Component {
       ...props,
     } = this.props;
 
+    const initialValues = !!value ? value : null;
+
     return (
       <IntlInput
         name={name}
         initialLang={lang}
-        initialValues={value}
+        initialValues={initialValues}
         onInputChange={this.handleInputChange}
         onInputFocus={this.handleInputFocus}
         onInputBlur={this.handleInputBlur}

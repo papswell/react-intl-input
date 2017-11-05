@@ -4,6 +4,12 @@ import PropTypes from 'prop-types';
 import IntlInput from '../../lib/components/intl-input';
 import Option from '../../lib/components/option';
 
+const langs = [
+ { value: 'en', label: 'English' },
+ { value: 'fr', label: 'French' },
+ { value: 'es', label: 'Spanish' },
+];
+
 const getFlag = lang => {
   switch (lang) {
     case 'fr':
@@ -15,11 +21,7 @@ const getFlag = lang => {
   }
 }
 
-export default class CustomRenderingForm extends Component {
-
-  static propTypes = {
-    lang: PropTypes.string.isRequired,
-  }
+export default class CustomRendering extends Component {
 
   renderSelectValue = (value) => {
     return getFlag(value.value);
@@ -39,20 +41,28 @@ export default class CustomRenderingForm extends Component {
   };
 
   render() {
-    const { langs } = this.props;
 
     return (
-      <div className="form-control">
-        <label htmlFor="custom-rendering-input">
+      <section>
+        <h2>Custom rendering</h2>
 
-        </label>
-        <IntlInput
-          name="custom-rendering-input"
-          languages={langs}
-          optionRenderer={this.renderSelectOptions}
-          valueRenderer={this.renderSelectValue}
-        />
-      </div>
+        <p>
+        </p>
+
+        <div className="form-control">
+          <label htmlFor="custom-rendering-input">
+
+          </label>
+          <IntlInput
+            name="custom-rendering-input"
+            languages={langs}
+            optionRenderer={this.renderSelectOptions}
+            valueRenderer={this.renderSelectValue}
+          />
+        </div>
+
+      </section>
+
     );
   }
 }

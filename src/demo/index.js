@@ -4,7 +4,7 @@ import { createStore, combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
 import { Provider } from 'react-redux';
 
-import App from './components/app';
+import App from './app';
 
 const rootReducer = combineReducers({
   form: formReducer,
