@@ -17,10 +17,10 @@ class Option extends Component {
     const { label, displayWarning } = this.props;
 
     return (
-      <span className="react_intl_field-option">
+      <span className="react_intl_input-option">
         {label}
         {displayWarning && (
-          <span className="react_intl_field-option-empty_warning">
+          <span className="react_intl_input-option-empty_warning">
             &#x26a0;
           </span>
         )}

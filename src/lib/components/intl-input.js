@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import Select from './select';
-import Input from './input';
+import DefaultInput from './input';
 import Option from './option';
 
 import './styles.css';
@@ -44,6 +44,7 @@ class IntlInput extends Component {
     onInputChange: PropTypes.func,
     onInputFocus: PropTypes.func,
     onInputBlur: PropTypes.func,
+    inputComponent: PropTypes.func,
   }
 
   constructor(props) {
@@ -113,9 +114,11 @@ class IntlInput extends Component {
   render() {
     const { languages, lang } = this.state;
 
+    const Input = this.props.inputComponent || DefaultInput;
+
     const { inputName, selectName } = getNames(this.props.name);
     return (
-      <div className="react_intl_field">
+      <div className="react_intl_input">
         <Select
           name={selectName}
           value={lang}

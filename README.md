@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # react-intl-input
 
 [![Travis][build-badge]][build]
@@ -15,10 +14,3 @@ Describe react-intl-input here.
 
 [coveralls-badge]: https://img.shields.io/coveralls/user/repo/master.png?style=flat-square
 [coveralls]: https://coveralls.io/github/user/repo
-=======
-# UNDER DEVELOPMENT, DO YOURSELF A FAVOR, DON'T USE IT :)
-
-# react-intl-input
-
-A component to handle multi-languages forms.
->>>>>>> 0e265c0... initial commit

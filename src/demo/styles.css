@@ -1,31 +1,31 @@
-.react_intl_field {
+.react_intl_input {
   display: flex;
 }
 
-.react_intl_field-lang_selector .Select-value {
+.react_intl_input-lang_selector .Select-value {
   min-width: 60px;
 }
 
-.react_intl_field-lang_selector .Select-menu-outer {
+.react_intl_input-lang_selector .Select-menu-outer {
   width: auto;
 }
 
-.react_intl_field-lang_selector .Select-control {
+.react_intl_input-lang_selector .Select-control {
   border-radius: 0;
   min-width: 200px;
 }
 
-.react_intl_field-input {
+.react_intl_input-input {
 
 }
 
-.react_intl_field-option {
+.react_intl_input-option {
   display: block;
   height: 100%;
   width: 100%;
   text-align: left !important;
 }
 
-.react_intl_field-option-empty_warning {
+.react_intl_input-option-empty_warning {
   margin-left: 4px;
 }

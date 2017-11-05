@@ -13,7 +13,7 @@ class Select extends Component {
   render() {
     return (
       <ReactSelect
-        className="react_intl_field-lang_selector"
+        className="react_intl_input-lang_selector"
         {...this.props}
       />
     );

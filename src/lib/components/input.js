@@ -21,7 +21,7 @@ class Input extends Component {
     return (
       <input
         name={name}
-        className="react_intl_field-input"
+        className="react_intl_input-input"
         value={value}
         onChange={onChange}
         onFocus={onFocus}
