@@ -37,7 +37,7 @@
   "peerDependencies": {
     "react": "16.x",
     "react-dom": "16.x",
-    "react-select": "1.x",
+    "react-select": "1.x"
   },
   "devDependencies": {
     "nwb": "0.20.x",
