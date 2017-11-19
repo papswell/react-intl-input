@@ -1,0 +1,24 @@
+<<<<<<< HEAD
+sudo: false
+
+language: node_js
+node_js:
+  - 6
+
+before_install:
+  - npm install codecov.io coveralls
+
+after_success:
+  - cat ./coverage/lcov.info | ./node_modules/codecov.io/bin/codecov.io.js
+  - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+
+branches:
+  only:
+    - master
+=======
+language: node_js
+node_js:
+ - "node"
+script:
+ - npm run test
+>>>>>>> 0e265c0... initial commit

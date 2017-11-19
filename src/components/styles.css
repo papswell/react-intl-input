@@ -1,0 +1,33 @@
+.react_intl_input {
+  display: flex;
+  align-items: flex-start;
+}
+
+.react_intl_input-lang_selector .Select-value {
+  min-width: 60px;
+}
+
+.react_intl_input-lang_selector .Select-menu-outer {
+  width: auto;
+}
+
+.react_intl_input-lang_selector .Select-control {
+  border-radius: 0;
+  min-width: 90px;
+}
+
+.react_intl_input-input {
+  min-height: 100%;
+  align-self: stretch;
+}
+
+.react_intl_input-option {
+  display: block;
+  height: 100%;
+  width: 100%;
+  text-align: left !important;
+}
+
+.react_intl_input-option-empty_warning {
+  margin-left: 4px;
+}
