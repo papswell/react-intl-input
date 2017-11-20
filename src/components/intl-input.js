@@ -7,7 +7,7 @@ import Option from './option';
 
 import './styles.css';
 
-const computeState = (props, state = {}) => {
+export const computeState = (props, state = {}) => {
 
   const values = props.languages
     .map(lang => lang.value)
