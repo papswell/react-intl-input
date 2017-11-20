@@ -1,6 +1,6 @@
 {
   "name": "react-intl-input",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "A react <input /> component to handle multi languages forms",
   "license": "MIT",
   "keywords": [
