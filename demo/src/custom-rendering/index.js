@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { FormGroup, ControlLabel } from 'react-bootstrap';
+import { Row, Col, FormGroup, ControlLabel } from 'react-bootstrap';
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { atomOneDark as style } from 'react-syntax-highlighter/styles/hljs';
 
 import IntlInput from '../../../src/components/intl-input';
 import Option from '../../../src/components/option';
@@ -24,8 +26,8 @@ const getFlag = lang => {
 
 export default class CustomRendering extends Component {
 
-  renderSelectValue = (value) => {
-    return getFlag(value.value);
+  renderSelectValue = ({ value }) => {
+    return getFlag(value);
   }
 
   renderSelectOptions = (option, i, state) => {
@@ -44,7 +46,7 @@ export default class CustomRendering extends Component {
   render() {
 
     return (
-      <section>
+      <section id="custom-rendering">
         <h2>Custom rendering</h2>
 
         <p>
@@ -52,14 +54,55 @@ export default class CustomRendering extends Component {
 
         <FormGroup>
           <ControlLabel>Label</ControlLabel>
-          <IntlInput
-            name="custom-rendering-input"
-            languages={langs}
-            optionRenderer={this.renderSelectOptions}
-            valueRenderer={this.renderSelectValue}
-          />
-        </FormGroup>
 
+        </FormGroup>
+        <Row>
+          <Col md={6}>
+            <IntlInput
+              name="custom-rendering-input"
+              languages={langs}
+              optionRenderer={this.renderSelectOptions}
+              valueRenderer={this.renderSelectValue}
+            />
+          </Col>
+          <Col md={6}>
+            <SyntaxHighlighter
+              style={style}
+              language="javascript"
+            >
+{`
+  const getFlag = lang => {
+    switch (lang) {
+      case 'fr':
+        return '🇨🇵';
+      case 'es':
+        return '🇪🇸';
+      default:
+        return '🇬🇧';
+    }
+  }
+
+  class Custom extends Component {
+
+    renderSelectValue = ({ value }) => {
+      return getFlag(value);
+    }
+
+    render = () => {
+      return (
+        <IntlInput
+          name="custom-rendering-input"
+          languages={langs}
+          valueRenderer={this.renderSelectValue}
+        />
+      )
+    }
+  }
+
+`}
+            </SyntaxHighlighter>
+          </Col>
+        </Row>
       </section>
 
     );

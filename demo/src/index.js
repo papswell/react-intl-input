@@ -6,6 +6,8 @@ import { Provider } from 'react-redux';
 
 import App from './app';
 
+import './theme.scss';
+
 const rootReducer = combineReducers({
   form: formReducer,
 });
@@ -15,8 +17,18 @@ const store = createStore(
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
-ReactDOM.render((
-  <Provider store={store}>
-    <App />
-  </Provider>
-), document.getElementById('demo'));
+const renderApp = () => {
+  ReactDOM.render((
+    <Provider store={store}>
+      <App />
+    </Provider>
+  ), document.getElementById('demo'))
+};
+
+if (module.hot) {
+  module.hot.accept('.', () => {
+    renderApp();
+  });
+}
+
+renderApp();

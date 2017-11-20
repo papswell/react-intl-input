@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
 import { Row, Col, FormGroup } from 'react-bootstrap';
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { atomOneDark as style } from 'react-syntax-highlighter/styles/hljs';
+
 import SyncFields from './sync-fields';
 
 const langs = [
@@ -29,15 +32,14 @@ class SyncSelectionExample extends Component {
     const { lang } = this.state;
 
     return (
-      <section>
-        <h2>Sync languages</h2>
-
-        <p>
-          Use the `onLangChange` function prop
-        </p>
-
+      <section id="sync-fields">
         <Row>
           <Col md={6}>
+            <h2>Sync fields</h2>
+            <p>
+              Pass a <code>lang</code> prop to select a language ans use the <code>onLangChange</code> function prop as a change callback.
+            </p>
+
             <FormGroup>
               <label>Language selected</label>
               <Select
@@ -57,10 +59,25 @@ class SyncSelectionExample extends Component {
             <SyncFields
               langs={langs}
               lang={lang}
-              handleLangChange={this.handleLangChange}
+              onLangChange={this.handleLangChange}
             />
           </Col>
-          <Col md={6}></Col>
+          <Col md={6}>
+            <SyntaxHighlighter
+              style={style}
+              language="javascript"
+            >
+{`
+  <Field
+    name="description"
+    component={ReduxFormIntlInput}
+    lang={lang}
+    languages={langs}
+    onLangChange={this.props.onLangChange}
+  />
+`}
+          </SyntaxHighlighter>
+          </Col>
         </Row>
       </section>
     );

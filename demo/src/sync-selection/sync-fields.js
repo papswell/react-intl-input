@@ -30,7 +30,7 @@ class CustomRenderingForm extends Component {
               component={ReduxFormIntlInput}
               lang={lang}
               languages={langs}
-              handleLangChange={this.props.handleLangChange}
+              onLangChange={this.props.onLangChange}
             />
           </FormGroup>
 
@@ -41,7 +41,7 @@ class CustomRenderingForm extends Component {
               component={ReduxFormIntlInput}
               lang={lang}
               languages={langs}
-              handleLangChange={this.props.handleLangChange}
+              onLangChange={this.props.onLangChange}
             />
           </FormGroup>
 

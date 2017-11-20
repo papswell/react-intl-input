@@ -74,7 +74,6 @@ export default class ReduxFormWrapper extends Component {
         onInputChange={this.handleInputChange}
         onInputFocus={this.handleInputFocus}
         onInputBlur={this.handleInputBlur}
-        onLangChange={this.props.handleLangChange}
         {...props}
       />
     )
