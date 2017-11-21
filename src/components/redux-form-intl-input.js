@@ -55,9 +55,9 @@ export default class ReduxFormWrapper extends Component {
         onDragStart, // eslint-disable-line no-unused-vars
         onDrop, // eslint-disable-line no-unused-vars
       },
+      initialValues: _unwantedInital, // eslint-disable-line no-unused-vars
       ...props,
     } = this.props;
-
 
     let initialValues = null;
     if (typeof value.toJS === 'function') {

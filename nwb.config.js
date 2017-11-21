@@ -8,5 +8,5 @@ module.exports = {
     html: {
       template: 'demo/src/index.html'
     }
-  }
+  },
 }

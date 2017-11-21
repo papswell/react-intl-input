@@ -24,7 +24,7 @@ export const computeState = (props, state = {}) => {
   }
 }
 
-const getNames = (name) => {
+export const getNames = (name) => {
   return ({
     inputName: `${name}-${IntlInput.instanceCount}-input`,
     selectName: `${name}-${IntlInput.instanceCount}-select`,
@@ -70,7 +70,6 @@ class IntlInput extends Component {
   }
 
   handleInputChange = (event) => {
-
     const inputValue = event.target.value;
 
     if (typeof this.props.onInputChange === 'function') {
@@ -95,7 +94,6 @@ class IntlInput extends Component {
   }
 
   renderSelectOptions = (option, index) => {
-
     const renderOption = this.props.optionRenderer;
 
     if (typeof renderOption === 'function') {
@@ -104,7 +102,7 @@ class IntlInput extends Component {
       const isEmpty = !this.state.values[option.value];
       return (
         <Option
-          displayWarning={isEmpty}
+          displayWarning={false}
           label={option.label}
         />
       )
@@ -115,7 +113,6 @@ class IntlInput extends Component {
     const { languages, lang } = this.state;
 
     const Input = this.props.inputComponent || DefaultInput;
-
     const { inputName, selectName } = getNames(this.props.name);
     return (
       <div className="react_intl_input">
