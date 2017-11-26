@@ -1,0 +1,13 @@
+.react_intl_input-lang_selector .Select-value {
+  /*min-width: 60px;*/
+}
+
+.react_intl_input-lang_selector .Select-menu-outer {
+  width: auto;
+}
+
+.react_intl_input-lang_selector .Select-control {
+  border-radius: 0;
+  border-right: none;
+  /*min-width: 90px;*/
+}

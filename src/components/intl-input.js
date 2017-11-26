@@ -5,8 +5,6 @@ import Select from './select';
 import DefaultInput from './input';
 import Option from './option';
 
-import './styles.css';
-
 export const computeState = (props, state = {}) => {
 
   const values = props.languages
@@ -117,6 +115,7 @@ class IntlInput extends Component {
     return (
       <div className="react_intl_input">
         <Select
+          className="react_intl_input-lang_selector"
           name={selectName}
           value={lang}
           options={languages}
@@ -125,6 +124,7 @@ class IntlInput extends Component {
           valueRenderer={this.props.valueRenderer}
         />
         <Input
+          className="react_intl_input-input"
           name={inputName}
           value={this.state.values[lang]}
           onChange={this.handleInputChange}

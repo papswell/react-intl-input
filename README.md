@@ -32,7 +32,7 @@ Live demo: [papswell.github.io/react-intl-input](https://papswell.github.io/reac
 [build-badge]: https://img.shields.io/travis/papswell/react-intl-input/master.png?style=flat-square
 [build]: https://travis-ci.org/papswell/react-intl-input
 
-[npm-badge]: https://img.shields.io/npm/v/npm-package.png?style=flat-square
+[npm-badge]: https://img.shields.io/npm/v/react-intl-input.png?style=flat-square
 [npm]: https://www.npmjs.org/package/react-intl-input
 
 [coveralls-badge]: https://img.shields.io/coveralls/papswell/react-intl-input/master.png?style=flat-square

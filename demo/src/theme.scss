@@ -1,8 +1,3 @@
-$bgc: #000;
-
-body {
-}
-
 .header-links {
   display: flex;
   align-items: center;
@@ -18,4 +13,26 @@ section {
   background-color: #f9f9f9;
   padding: 20px;
   margin: 20px 0;
+
+  &:not(#custom-rendering) {
+    .react_intl_input-lang_selector .Select-control {
+      min-width: 90px;
+    }
+  }
+}
+
+.react_intl_input-lang_selector .Select-control {
+  #custom-rendering & {
+    min-width: 54px;
+  }
+}
+
+.react_intl_input-input {
+  display: flex;
+  flex: 1;
+}
+
+textarea.react_intl_input-input {
+  min-height: 160px;
+  padding: 8px 10px;
 }

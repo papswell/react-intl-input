@@ -3,22 +3,15 @@
   align-items: flex-start;
 }
 
-.react_intl_input-lang_selector .Select-value {
-  min-width: 60px;
-}
-
-.react_intl_input-lang_selector .Select-menu-outer {
-  width: auto;
-}
-
-.react_intl_input-lang_selector .Select-control {
-  border-radius: 0;
-  min-width: 90px;
-}
-
 .react_intl_input-input {
+  /* keep the focus blue border above the select component */
+  position: relative;
+
   min-height: 100%;
   align-self: stretch;
+  padding: 0 10px;
+
+  border: solid 1px #ccc;
 }
 
 .react_intl_input-option {

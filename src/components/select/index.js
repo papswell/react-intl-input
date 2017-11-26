@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactSelect from 'react-select';
 
 import 'react-select/dist/react-select.css';
+import './styles.css';
 
 class Select extends Component {
 
@@ -13,7 +14,6 @@ class Select extends Component {
   render() {
     return (
       <ReactSelect
-        className="react_intl_input-lang_selector"
         {...this.props}
       />
     );

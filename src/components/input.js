@@ -16,12 +16,13 @@ class Input extends Component {
       onChange,
       onFocus,
       onBlur,
+      ...props,
     } = this.props;
 
     return (
       <input
+        {...props}
         name={name}
-        className="react_intl_input-input"
         value={value}
         onChange={onChange}
         onFocus={onFocus}
