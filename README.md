@@ -2,7 +2,6 @@ react-intl-input
 ================
 
 A flexible input control for [React](http://facebook.github.io/react/index.html) to handle multi languages fields.  
-__STILL UNDER DEVELOPEMENT, NOT SUITABLE FOR PRODUCTION USAGE.__
 
 [![Travis][build-badge]][build]
 [![npm package][npm-badge]][npm]
@@ -11,22 +10,73 @@ __STILL UNDER DEVELOPEMENT, NOT SUITABLE FOR PRODUCTION USAGE.__
 
 ## Installation
 
-The easiest way to use react-intl-input is to install it from NPM and include it in your own React build process (using [Browserify](http://browserify.org), etc).
-
 ```
-npm install react-intl-input --save
+npm install --save react-intl-input
 ```
 
-At this point you can import `react-intl-input` and as follows:
+Then you can import one of `react-intl-input` components as follows:
 
 ```js
 import { IntlInput } from 'react-intl-input';
 ```
 
+## Features
+
+- Can be used standalone
+- Works with [redux-form](https://redux-form.com/7.1.2/)
+- Easy customization
+
+## Basic usage
+
+```jsx
+import { IntlInput } from 'react-intl-input';
+
+class Form extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      languages: [
+       { value: 'en', label: 'English' },
+       { value: 'fr', label: 'French' },
+      ],
+      initialValues: {
+        en: 'This is an english translation',
+        fr: 'Ceci est un texte en francais',
+      },
+    }
+  }
+
+  render() {
+    return (
+      <form onSubmit={() => {}}>
+        <IntlInput
+          name="basic-intl-input"
+          {...this.state}
+        />
+      </form>
+    )
+  }
+}
+
+```
 ## Demo & Examples
 
-Live demo: [papswell.github.io/react-intl-input](https://papswell.github.io/react-intl-input)
+Live demo with many concrete examples: [papswell.github.io/react-intl-input](https://papswell.github.io/react-intl-input)
 
+## Props
+
+| Property | Type | Default | Description |
+|:---|:---|:---|:---|
+| name | string _(required)_ | | The name attribute of the html input. |
+| languages | array _(required)_ | | The languages handled by the input |
+| initialLang | string | | The language selected on the first render |
+| initialValues | object | | The initial values for each language |
+| onLangChange | func | | Called whenever the language selection changes. ```onLangChange({ value, label}, state)``` |
+| onInputChange | func | | Called whenever the current value changes. ```onInputChange(currentLanguage, inputValue, state)``` |
+| onInputFocus | func | | Called when the input is focused. ```onInputFocus(syntheticEvent)``` |
+| onInputBlur | func | | Called when the input is blurred. ```onInputChange(syntheticEvent)``` |
+| inputComponent | func | | A function or a `React.Component` to be used as the input. |
 
 
 [build-badge]: https://img.shields.io/travis/papswell/react-intl-input/master.png?style=flat-square
