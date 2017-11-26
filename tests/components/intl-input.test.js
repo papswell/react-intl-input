@@ -183,6 +183,17 @@ describe('IntlInput component', () => {
     expect(o.type).toBe(Option);
   })
 
+  it('should render the default Option with warning of no value provided', () => {
+
+    const w = mount(<IntlInput
+      {...props}
+      initialValues={null}
+    />);
+
+    const o = w.instance().renderSelectOptions({ value: 'fr' });
+    expect(o.props.displayWarning).toBe(true);
+  })
+
   it('should use the optionRenderer if given', () => {
     const optionRenderer = createSpy();
     const w = mount(<IntlInput

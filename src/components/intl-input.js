@@ -102,7 +102,7 @@ class IntlInput extends Component {
       const isEmpty = !this.state.values[option.value];
       return (
         <Option
-          displayWarning={false}
+          displayWarning={isEmpty}
           label={option.label}
         />
       )
