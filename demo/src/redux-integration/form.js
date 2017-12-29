@@ -61,8 +61,11 @@ export default connect(
   form: 'ReduxForm',
   validate: (values) => {
     const errors = {};
-
-    errors.title = Object.values(values.title).some(v => !v) && "Title is required";
+    if (values) {
+      if (values.title) {
+        errors.title = Object.values(values.title).some(v => !v) && "Title is required";
+      }
+    }
     return errors;
   }
 })(Form));

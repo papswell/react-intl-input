@@ -59,12 +59,13 @@ describe('ReduxFormWrapper component', () => {
     expect(spy).toHaveBeenCalledWith(value);
   })
 
-  it('should stay idle  if no value', () => {
+  it('should pass the new value if no inital value', () => {
     const spy = spyOn(props.input, 'onChange');
     const w = shallow(<ReduxFormWrapper {...props} />);
-    w.instance().handleInputChange();
+    w.instance().handleInputChange('en', 'New text');
 
-    expect(spy).toNotHaveBeenCalled();
+    expect(spy).toHaveBeenCalled();
+    expect(spy.calls[0].arguments).toEqual([{ en: 'New text' }]);
   })
 
   it('should call the redux-form onChange callback if value', () => {

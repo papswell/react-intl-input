@@ -21,11 +21,15 @@ export default class ReduxFormWrapper extends Component {
 
     const { input: { value, onChange } } = this.props;
 
-    if (typeof value.toJS === 'function') {
+    if (value && typeof value.toJS === 'function') {
       onChange(value.set(lang, newValue));
     } else if (value) {
       onChange({
         ...value,
+        [lang]: newValue,
+      });
+    } else {
+      onChange({
         [lang]: newValue,
       });
     }
